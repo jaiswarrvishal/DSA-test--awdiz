@@ -98,7 +98,17 @@
 
 // Question 8:
 // Write a JavaScript function that takes a string as input and returns the reverse of the string using a for loop.
-
+let name = "vishal";
+function revString(){
+    let revString = " ";
+    for(let i = name.length - 1; i >= 0; i--){
+        revString += name[i];
+    }
+    return revString;
+}
+const reverse = revString("vishal");
+// console.log(name)
+console.log(reverse);
 
 // Question 9:
 
