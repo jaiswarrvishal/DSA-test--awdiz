@@ -98,6 +98,30 @@ console.log(newArray);
 // Output:
 // 3
 
+var numbers = [1, 2, 3, 4, 5, 6];
+var target = 4;
+
+function binarySearch(array, target){
+    var left = 0; 
+    var right = array.length - 1; 
+    while(left <= right){  
+        var midIndex = Math.floor((left + right)/2); 
+        console.log(midIndex, "midIndex", array[midIndex]) 
+            if(array[midIndex] === target){  
+                return midIndex;  
+            } else if(array[midIndex] < target){ 
+                console.log(array[midIndex], target, "element is lesser than target"); 
+                left = midIndex + 1; 
+            } else if(array[midIndex] > target){ 
+                console.log(array[midIndex], target, "element is greater than targte");
+                right = midIndex - 1;
+            }
+        }
+    }
+
+let result = binarySearch(numbers, target);
+console.log(result)
+
 // Question 8:
 // Write a JavaScript function that takes a string as input and returns the first non-repeated character. If all characters are repeated, return null.
 // Input:
