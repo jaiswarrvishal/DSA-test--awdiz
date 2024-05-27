@@ -27,6 +27,44 @@
 // Output:
 // "a"
 
+function mostFrequentChar(str) {
+  // Handle empty string or non-string input
+  if (!str || typeof str !== 'string') {
+    return null;
+  }
+
+  let maxChar = str[0]; // Assume first character is most frequent initially
+  let maxCount = 1;
+
+  for (let i = 1; i < str.length; i++) {
+    const char = str[i];
+    let charCount = 0;
+
+    // Count occurrences of the current character
+    for (let j = 0; j < str.length; j++) {
+      if (str[j] === char) {
+        charCount++;
+      }
+    }
+
+    // Update maxChar and maxCount if a new character appears more frequently
+    if (charCount > maxCount) {
+      maxChar = char;
+      maxCount = charCount;
+    }
+  }
+
+  return maxChar;
+}
+
+// Test the function
+const inputString = "javascript";
+const mostFrequent = mostFrequentChar(inputString);
+console.log(mostFrequent); // Output: "a"
+
+
+
+
 // Question 3:
 // Create a JavaScript function that takes two arrays as input and returns a new array containing only the elements that are present in both arrays (intersection).
 // Input:
@@ -45,21 +83,21 @@
 // console.log(intersection);
 
 // OR
-var array1 = [1, 2, 3, 4];
-var array2 = [2, 4, 6, 8];
+// var array1 = [1, 2, 3, 4];
+// var array2 = [2, 4, 6, 8];
 
-function intersection(array1, array2) {
-  var newarray = [];
-  for (var i = 0; i < array1.length; i++) {
-    for (var j = 0; j < array2.length; j++) {
-      if (array1[i] === array2[j]) {
-        newarray.push(array1[i]);
-      }
-    }
-  }
-  return newarray;
-}
-console.log(intersection(array1, array2));
+// function intersection(array1, array2) {
+//   var newarray = [];
+//   for (var i = 0; i < array1.length; i++) {
+//     for (var j = 0; j < array2.length; j++) {
+//       if (array1[i] === array2[j]) {
+//         newarray.push(array1[i]);
+//       }
+//     }
+//   }
+//   return newarray;
+// }
+// console.log(intersection(array1, array2));
 
 // Question 4:
 // Write a JavaScript program that finds the largest prime factor of a given number.
@@ -76,12 +114,12 @@ console.log(intersection(array1, array2));
 // [1, 2, 3, 4, 5]
 
 
-const inArray = [1, 2, 2, 3, 4, 4, 5];
-function remDub(arr){
-    return arr.filter((ele, index)=> arr.indexOf(ele) === index);
-}
-const newArray = remDub(inArray);
-console.log(newArray);
+// const inArray = [1, 2, 2, 3, 4, 4, 5];
+// function remDub(arr){
+//     return arr.filter((ele, index)=> arr.indexOf(ele) === index);
+// }
+// const newArray = remDub(inArray);
+// console.log(newArray);
 
 // Question 6:
 // Write a JavaScript function that takes a nested array (an array of arrays) and returns a single flattened array.
@@ -98,29 +136,29 @@ console.log(newArray);
 // Output:
 // 3
 
-var numbers = [1, 2, 3, 4, 5, 6];
-var target = 4;
+// var numbers = [1, 2, 3, 4, 5, 6];
+// var target = 4;
 
-function binarySearch(array, target){
-    var left = 0; 
-    var right = array.length - 1; 
-    while(left <= right){  
-        var midIndex = Math.floor((left + right)/2); 
-        console.log(midIndex, "midIndex", array[midIndex]) 
-            if(array[midIndex] === target){  
-                return midIndex;  
-            } else if(array[midIndex] < target){ 
-                console.log(array[midIndex], target, "element is lesser than target"); 
-                left = midIndex + 1; 
-            } else if(array[midIndex] > target){ 
-                console.log(array[midIndex], target, "element is greater than targte");
-                right = midIndex - 1;
-            }
-        }
-    }
+// function binarySearch(array, target){
+//     var left = 0; 
+//     var right = array.length - 1; 
+//     while(left <= right){  
+//         var midIndex = Math.floor((left + right)/2); 
+//         console.log(midIndex, "midIndex", array[midIndex]) 
+//             if(array[midIndex] === target){  
+//                 return midIndex;  
+//             } else if(array[midIndex] < target){ 
+//                 console.log(array[midIndex], target, "element is lesser than target"); 
+//                 left = midIndex + 1; 
+//             } else if(array[midIndex] > target){ 
+//                 console.log(array[midIndex], target, "element is greater than targte");
+//                 right = midIndex - 1;
+//             }
+//         }
+//     }
 
-let result = binarySearch(numbers, target);
-console.log(result)
+// let result = binarySearch(numbers, target);
+// console.log(result)
 
 // Question 8:
 // Write a JavaScript function that takes a string as input and returns the first non-repeated character. If all characters are repeated, return null.
